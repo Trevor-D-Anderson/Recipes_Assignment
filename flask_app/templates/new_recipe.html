@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>New Recipe</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Add New Recipe</h1>
+            <div>
+                <a class="links" href="/dashboard">Home</a>
+                <a class="links" href="/logout">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form  class="create" action="/create_new" method="post">
+        <label for="recipe_name">Recipe Name:</label>
+        <input type="text" name="recipe_name">
+        <br>
+        <label class="labels" for="description">Short Description:</label>
+        <textarea type="text" name="description" cols="30" rows="3"></textarea>
+        <br>
+        <label class="labels" for="instructions">Instructions:</label>
+        <textarea type="text" name="instructions" cols="30" rows="10"></textarea>
+        <br>
+        <label for="created_at">Enter Date:</label>
+        <input type="date" name="created_at">
+        <br>
+        <label for="">Under 30 Minutes:</label>
+        <div>
+            <input type="radio" name="under_30" value="Yes" id="yes">
+            <label for="yes">Yes</label>
+            <input type="radio" name="under_30" value="No" id="no">
+            <label for="no">No</label>
+        </div>
+        <br>
+        <input type="submit" value="Create">
+        </form>
+    </main>
+</body>
+</html>

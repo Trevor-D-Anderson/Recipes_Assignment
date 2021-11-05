@@ -1,0 +1,70 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header{
+    width: 80%;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.links{
+    margin-left: 20px;
+}
+.create{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: cadetblue;
+    padding: 40px;
+}
+.labels{
+    text-align: start;
+}
+.actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+}
+a{
+    padding: 2px;
+}
+table {
+    color: #333;
+    background: white;
+    border: 1px solid grey;
+    font-size: 12pt;
+    border-collapse: collapse;
+}
+table thead th,
+table tfoot th {
+    color: #777;
+    background: rgba(0,0,0,.1);
+}
+table caption {
+    padding:.5em;
+}
+table th,
+table td {
+    padding: .5em;
+    border: 1px solid lightgrey;
+}
+[data-table-theme*=zebra] tbody tr:nth-of-type(odd) {
+    background: rgba(0,0,0,.05);
+}
+[data-table-theme*=zebra][data-table-theme*=dark] tbody tr:nth-of-type(odd) {
+    background: rgba(255,255,255,.05);
+}
+.show{
+    display: flex;
+    flex-direction: row;
+}
+.show p{
+    margin-right: 20px;
+}

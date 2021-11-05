@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Edit Recipe</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Welcome {{session['first_name']}}!</h1>
+            <div>
+                <a class="links" href="/dashboard">Dashboard</a>
+                <a class="links" href="/logout">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Editing: {{recipe.recipe_name}}</h1>
+        <div>
+            <form class="create" action="/edit/{{recipe.id}}/editing" method="post">
+                <label for="recipe_name">Recipe Name:</label>
+                <input type="text" name="recipe_name" value="{{ recipe.recipe_name }}"><br><br>
+                <label for="description">Description:</label>
+                <input type="text" name="description" value="{{ recipe.description }}"><br><br>
+                <label for="instructions">Instructions:</label>
+                <textarea type="text" name="instructions" id="" cols="30" rows="5"></textarea><br><br>
+                <label for="under_30">Under 30 Minutes:</label>
+                <div>
+                    <input type="radio" name="under_30" value="Yes" id="Yes">
+                    <label for="Yes">Yes</label>
+                    <input type="radio" name="under_30" value="No" id="No">
+                    <label for="No">No</label>
+                </div><br><br>
+                <input type="submit"  value="Submit Edit">
+            </form>
+        </div>
+    </main>
+</body>
+</html>

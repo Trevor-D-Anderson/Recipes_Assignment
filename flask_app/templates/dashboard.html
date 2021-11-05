@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{{ session['first_name'] }}'s Dashboard</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Welcome {{session['first_name']}}!</h1>
+            <div>
+                <a class="links" href="/create">Create New Recipe</a>
+                <a class="links" href="/logout">Logout</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h3>Here are your Recipes</h3>
+        <div class="table">
+            <table data-table-theme="default zebra">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Under 30 Minutes</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for recipe in recipes %}
+                        <tr>
+                            <td>{{ recipe.recipe_name }}</td>
+                            <td>{{ recipe.under_30 }}</td>
+                            <td class="actions"><a href="/recipe/{{recipe.id}}">Show</a><p> | </p>
+                                <a href="/edit/{{recipe.id}}">Edit</a><p> | </p>
+                                <a href="/delete/{{recipe.id}}">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+</body>
+</html>

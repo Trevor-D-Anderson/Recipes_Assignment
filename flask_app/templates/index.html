@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes Login</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Welcome</h1>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <h2>Create a New User</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form action="/create_user" method="post">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" placeholder="First Name">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" placeholder="Last Name">
+            <label for="username">Username:</label>
+            <input type="text" name="username" placeholder="Username">
+            <label for="password">Enter a Password:</label>
+            <input type="password" name="password" placeholder="Password">
+            <label for="confirm_password">Please Confirm Password:</label>
+            <input type="password" name="confirm_password" placeholder="Confirm Password">
+            <button type="submit">Create User</button>
+            </form>
+        </div>
+        <div>
+            <h2>Log in</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        <form action="/login_user" method="post">
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="Username">
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Login">
+        </form>
+        </div>
+    </main>
+
+</body>
+</html>
